@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 Project</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fff8fb;
+        color: #4d3942;
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, #f8d5e2, #fcecf2);
+        text-align: center;
+        padding: 70px 20px 60px;
+        border-bottom: 1px solid #edc2d2;
+    }
+
+    .logo {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        background-color: #d98eaa;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    header h1 {
+        color: #9b526f;
+        font-size: 42px;
+        margin-bottom: 8px;
+    }
+
+    header h2 {
+        font-size: 20px;
+        font-weight: normal;
+        color: #765563;
+    }
+
+    header p {
+        max-width: 650px;
+        margin: 15px auto 0;
+        color: #684e59;
+    }
+
+    nav {
+        background-color: white;
+        padding: 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid #f0dce4;
+    }
+
+    nav a {
+        color: #9b526f;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+    }
+
+    nav a:hover {
+        color: #c97899;
+    }
+
+    section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 60px 25px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        color: #9b526f;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .about-box {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 18px;
+        box-shadow: 0 5px 20px rgba(160, 90, 115, 0.10);
+    }
+
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #f1c4d5;
+        background-color: #f9e3eb;
+    }
+
+    .about-box h3 {
+        font-size: 24px;
+        color: #9b526f;
+        margin-bottom: 10px;
+    }
+
+    .works-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .work-card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(160, 90, 115, 0.10);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .work-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(160, 90, 115, 0.15);
+    }
+
+    .work-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        background-color: #f7e1e9;
+        border-radius: 12px;
+    }
+
+.work-card h3 {
+        font-size: 20px;
+        color: #9b526f;
+        margin: 15px 0 10px;
+    }
+
+    .lists {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 35px;
+    }
+
+    .list-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(160, 90, 115, 0.10);
+    }
+.list-box h3 {
+        font-size: 20px;
+        color: #9b526f;
+        margin-bottom: 15px;
+    }
+
+    .list-box ul,
+    .list-box ol {
+        padding-left: 20px;
+    }
+
+    .list-box dt {
+        font-weight: bold;
+        color: #9b526f;
+    }
+
+    .list-box dd {
+        margin-bottom: 10px;
+    }
+
+    .contact-section {
+        background-color: #fcecf2;
+        max-width: none;
+    }
+
+    .contact-content {
+        margin: auto;
+        max-width: auto;
+    }
+
+    .contact-intro {
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: -17px;
+        color: #765563;
+    }
+
+    form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(160, 90, 115, 0.10);
+    }
+
+    label {
+        display: block;
+        margin: 14px 0 6px;
+        color: #765563;
+        font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+       font: inherit;
+        border: 1px solid #d8b0c2;
+        border-radius: 8px;
+        color: #4d3942;
+        background-color: #fffafd;
+    }
+     
+     textarea {
+        resize: vertical;
+        min-height: 100px;
+     }
+
+     button {
+        background-color: #9b526f;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        background-color: #d98eaa;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+     }
+
+button:hover {
+        background-color: #c97899;
+     }
+
+    #formMessage {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+        color: #9b526f
+    }
+
+    footer {
+        background-color: #9b526f;
+        text-align: center;
+        padding: 20px;
+        color: white;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+        
+        header h1 {
+            font-size: 32px;
+        }
+
+        .about-box {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .works-grid,
+        .lists{
+            grid-template-columns: 1fr;
+        }
+
+        nav a {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Q1</div>
+        <h1>Hello, I'm Roux Felicza Paredes</h1>
+
+        <h2>>
+            <span>Aspiring to have high grades</span>
+        </h2>
+
+        <p>
+            Welcome to my personal profile! I am an OB student who loves playing sports, especially volleyball. I enjoy makeup, drawing, and expressing myself.
+        </p>
+
+        </header>
+
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#works">My Works</a>
+            <a href="#lists">Interests</a>
+            <a href="#contact">Contact Me</a>
+            </nav>
+    
+            <section id="about">
+                <h2 class="section-title">About Me</h2>
+
+                <div class="about-box">
+                    <img
+                    class="profile-pic"
+                    src="pfp.jpeg"
+                    alt="Profile Picture"
+                    />
+
+                    <div>
+                        <h3>Hi, nice to meet you! I'm Roux.</h3>
+                        <p>
+                            I'm Roux Felicza Paredes. A student from OB Montessori who enjoys being creative and active. Volleyball is my favorite sport, and I also like makeup and drawing. Through hobbies and schoool, I hope to continue improving and reaching my goals in life.
+                        </p>
+
+                        </div>
+
+                </div>
+
+            </section>
+
+            <section id="works">
+                <h2 class="section-title">
+                    My Works
+                </h2>
+
+                <div class="works-grid">
+
+                    <div class="work-card">
+                        <img
+                        src="drawing.jpg"
+                        alt="Drawing 1"
+                        style="width: 100%; height: auto; object-fit: contain;"
+                    >
+
+                    <h3>Drawing 1</h3>
+                    <p> A drawing that I sketched on a random night, he is my favorite anime character.</p>        
+                </div>
+
+                <div class="work-card">
+                    <img
+                    src="drawing 2.jpg"
+                    alt="Drawing 2"
+                    style="width: 100%; height: auto; object-fit: contain;"
+                    >
+                    <h3>Drawing 2</h3>
+                    <P>
+                        Another one of my drawings about an anime character, a sweet couple.
+                    </P>
+                </div>
+
+                <div class="work-card">
+                    <img
+                    src="makeup.jpg"
+                    alt="Makeup Designs"
+                    style="width: 100%; height: auto; object-fit: contain;"
+                    >
+                    <h3>Makeup Designs</h3>
+                    <p>
+                        This one is special because it represents my love for makeup.
+                    </p>
+                </div>
+
+                </div>
+
+            </section>
+
+            <section id="lists">
+                <h2 class="section-title">
+                    My Interests
+                </h2>
+
+                <div class="lists">
+
+                    <div class="list-box">
+                        <h3>Thing I Love</h3>
+                        <ul>
+                            <li>Sports</li>
+                            <li>Volleyball</li>
+                            <li>Drawing</li>
+                            <li>Makeup</li>
+                        
+                        </ul>
+                </div>
+
+                <div class="list-box">
+                        <h3>My Goals</h3>
+
+                        <ol>
+                            <li>Maintain high grades</li>
+                            <li>Improve my volleyball skills</li>
+                            <li>Get better at drawing</li>
+                            <li>Keep exploring for new hobbies</li>
+                        </ol>
+                </div>
+
+                <div class="list-box">
+                    <h3>What I Present</h3>
+                    <d1>
+                        <dt>Sports</dt>
+                        <dd> My love for sports drives me to stay active and play volleyball.</dd>
+                        
+                        <dt>Drawing & Makeup</dt>
+                        <dd> I enjoy expressing myself through sketching and creative makeup styles.</dd>
+
+                        <dt>School</dt>
+                        <dd> My goal of continuing to learn and improve my grades motivates me to study hard.
+                    </d1>
+                </div>
+                </div>
+            </section>
+
+            <section
+            class="contact-section"
+            id="contact"
+            >
+            <div class="contact-content">
+                <h2 class="section-title">Contact Me</h2>
+
+                <p class="contact-intro">
+                    If you want to reach out to me, please fill out the form below. </p>
+
+                    <form id="contactForm">
+               
+
+                        <div>
+                            <label for="name">Name:</label>
+
+                            <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="email">Email:</label>
+                            <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="interest">Interest:</label>
+
+
+                            <select
+                            id="interest"
+                            name="interest"
+                            required
+                            >
+                                <option 
+                                value=""
+                                disabled
+                                selected
+                                >
+                                Select an interest
+                            </option>
+
+                            <option value="Volleyball">Volleyball</option>
+                            <option value="Drawing">Drawing</option>
+                            <option value="Makeup">Makeup</option>
+                            <option value="School">School</option>
+                            <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="feedback">Feedback:</label>
+
+                            <textarea
+                            id="feedback"
+                            name="feedback"
+                            placeholder="Write your message here..."
+                            required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+
+                        <p id="formMessage"></p>
+
+                    </form>
+                </div>
+            </section>
+
+            <footer>
+                <p>
+                    &copy; 2024 Roux Felicza Paredes. All rights reserved | Personal Profile.
+                </p>
+
+                <p>
+                    <a href="https://www.instagram.com/_hanji0/"
+                    target="_blank"
+                    >
+                        View My Profile
+                    </a>
+                </p>
+            </footer>
+       <script>
+        document.getElementById('contactForm').addEventListener('submit', function() {
+            document.getElementById('formMessage').textContent = 'Thank you for your message! Your email should open with your message ready to send.'
+        });
+        </script>
+
+        </body>
+</html>
